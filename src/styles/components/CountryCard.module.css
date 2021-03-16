@@ -1,14 +1,43 @@
 .countryCardContainer {
   height: 100%;
 
-  background: var(--white);
-  border-radius: 5px;
-  box-shadow: 0 0 60px rgba(0, 0, 0 0.05);
-  padding: 1.5rem 2rem;
+  margin-top: 20px;
+}
 
+.countryCardContainer header img {
+  height: 16rem;
+  width: 32rem;
+
+  margin-bottom: 32px;
+}
+
+.countryCardContainer main {
   display: flex;
-  align-items: center;
-  justify-content: center;
 
-  text-align: center;
+  flex-direction: column;
+}
+
+.countryCardContainer main > div {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  text-align: left;
+}
+
+.countryCardContainer main > div:not(:first-child) {
+  margin-top: 16px;
+}
+
+@media (max-width: 420px) {
+  .countryCardContainer header img {
+    height: 8rem;
+    width: 16rem;
+
+    margin-bottom: 16px;
+  }
+
+  .countryCardContainer main > div {
+    font: 600 1.2rem 'JetBrains Mono', sans-serif;
+  }
 }

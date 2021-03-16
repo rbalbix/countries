@@ -8,7 +8,8 @@
   --white: #fff;
   --background: #f2f3f5;
   --gray-line: #dcdde0;
-  --text: #666666;
+  --text: #333333;
+  --search-text: #666666;
   --title: #2e384d;
 }
 
@@ -31,15 +32,15 @@
 }
 
 body {
-  background: var(--background);
+  background: url('/world-map-countries.svg') no-repeat center;
+  background-size: cover;
   color: var(--text);
 }
 
 body,
 input,
-textarea,
 button {
-  font: 400 1.6rem 'JetBrains', sans-serif;
+  font: 400 1.6rem 'JetBrains Mono', sans-serif;
 }
 
 button {
