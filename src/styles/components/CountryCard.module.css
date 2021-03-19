@@ -4,9 +4,13 @@
   margin-top: 20px;
 }
 
+.countryCardContainer header h1 {
+  margin-bottom: 10px;
+}
+
 .countryCardContainer header img {
   height: 16rem;
-  width: 32rem;
+  width: 24rem;
 
   margin-bottom: 32px;
 }
