@@ -12,17 +12,19 @@ interface Country {
 }
 
 interface CountryContextData {
+  data: Array<{ name: string }>;
   countryData: Country;
   loadCountryData: (countryName: string) => void;
 }
 
 interface CountryProviderProps {
   children: ReactNode;
+  data: Array<{ name: string }>;
 }
 
 export const CountryContext = createContext({} as CountryContextData);
 
-export function CountryProvider({ children }: CountryProviderProps) {
+export function CountryProvider({ children, data }: CountryProviderProps) {
   const [countryData, setCountryData] = useState<Country>(null);
 
   async function loadCountryData(countryName: string) {
@@ -52,7 +54,7 @@ export function CountryProvider({ children }: CountryProviderProps) {
   }
 
   return (
-    <CountryContext.Provider value={{ countryData, loadCountryData }}>
+    <CountryContext.Provider value={{ data, countryData, loadCountryData }}>
       {children}
     </CountryContext.Provider>
   );
