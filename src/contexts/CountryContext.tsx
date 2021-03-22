@@ -29,7 +29,7 @@ export function CountryProvider({ children, data }: CountryProviderProps) {
   const [countryData, setCountryData] = useState<Country>(null);
 
   async function loadCountryData(countryName: string) {
-    const [data] = (await api.get(`/name/${countryName}`)).data;
+    const [data] = (await api.get(`/name/${countryName}?fullText=true`)).data;
 
     const {
       name,
