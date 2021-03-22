@@ -39,16 +39,6 @@ body {
 }
 
 body,
-input,
-button {
+input {
   font: 400 1.6rem 'JetBrains Mono', sans-serif;
-}
-
-button {
-  cursor: pointer;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }

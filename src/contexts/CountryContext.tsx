@@ -10,6 +10,7 @@ interface Country {
   area: number;
   population: number;
   currency: string;
+  latlng: Array<Number>;
 }
 
 interface CountryContextData {
@@ -40,6 +41,7 @@ export function CountryProvider({ children, data }: CountryProviderProps) {
       area,
       population,
       currencies,
+      latlng,
     } = data;
     const [language] = languages;
     const [currency] = currencies;
@@ -53,6 +55,7 @@ export function CountryProvider({ children, data }: CountryProviderProps) {
       area,
       population,
       currency: currency.name,
+      latlng,
     });
   }
 

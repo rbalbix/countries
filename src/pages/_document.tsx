@@ -16,6 +16,15 @@ export default class MyDocument extends Document {
             rel='stylesheet'
             href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
           />
+
+          <link
+            rel='stylesheet'
+            href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css'
+          />
+          <link
+            href='https://unpkg.com/leaflet-geosearch@latest/assets/css/leaflet.css'
+            rel='stylesheet'
+          />
         </Head>
         <body>
           <Main />
