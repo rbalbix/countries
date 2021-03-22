@@ -4,6 +4,7 @@ import api from '../services/api';
 interface Country {
   name: string;
   flag: string;
+  subregion: string;
   capital: string;
   officialLanguage: string;
   area: number;
@@ -33,6 +34,7 @@ export function CountryProvider({ children, data }: CountryProviderProps) {
     const {
       name,
       flag,
+      subregion,
       capital,
       languages,
       area,
@@ -45,6 +47,7 @@ export function CountryProvider({ children, data }: CountryProviderProps) {
     setCountryData({
       name,
       flag,
+      subregion,
       capital,
       officialLanguage: language.name,
       area,

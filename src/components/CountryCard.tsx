@@ -23,6 +23,10 @@ export function CountryCard() {
           </header>
           <main>
             <div>
+              <p className='countryLabel'>Region</p>
+              <p className='countryData'>{countryData.subregion}</p>
+            </div>
+            <div>
               <p className='countryLabel'>Capital</p>
               <p className='countryData'>{countryData.capital}</p>
             </div>
