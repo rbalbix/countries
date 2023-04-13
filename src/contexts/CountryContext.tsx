@@ -2,26 +2,26 @@ import { createContext, ReactNode, useState } from 'react';
 import api from '../services/api';
 
 interface Country {
-  name: string;
-  flag: string;
+  name: { common: string };
+  flags: { png: string; svg: string; alt: string };
   subregion: string;
   capital: string;
-  officialLanguage: string;
+  languages: Object;
   area: number;
   population: number;
-  currency: string;
+  currencies: Object;
   latlng: Array<Number>;
 }
 
 interface CountryContextData {
-  data: Array<{ name: string }>;
+  data: Array<{ name: { common: string } }>;
   countryData: Country;
   loadCountryData: (countryName: string) => void;
 }
 
 interface CountryProviderProps {
   children: ReactNode;
-  data: Array<{ name: string }>;
+  data: Array<{ name: { common: string } }>;
 }
 
 export const CountryContext = createContext({} as CountryContextData);
@@ -32,9 +32,11 @@ export function CountryProvider({ children, data }: CountryProviderProps) {
   async function loadCountryData(countryName: string) {
     const [data] = (await api.get(`/name/${countryName}?fullText=true`)).data;
 
+    console.log(data);
+
     const {
       name,
-      flag,
+      flags,
       subregion,
       capital,
       languages,
@@ -43,18 +45,16 @@ export function CountryProvider({ children, data }: CountryProviderProps) {
       currencies,
       latlng,
     } = data;
-    const [language] = languages;
-    const [currency] = currencies;
 
     setCountryData({
       name,
-      flag,
+      flags,
       subregion,
       capital,
-      officialLanguage: language.name,
+      languages,
       area,
       population,
-      currency: currency.name,
+      currencies,
       latlng,
     });
   }

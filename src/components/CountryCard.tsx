@@ -21,8 +21,8 @@ export function CountryCard() {
       {countryData !== null && (
         <>
           <header>
-            <h1>{countryData.name}</h1>
-            <img src={countryData.flag} alt='Country Flag' />
+            <h1>{countryData.name.common}</h1>
+            <img src={countryData.flags.svg} alt={countryData.flags.alt} />
           </header>
           <main>
             <div>
@@ -34,8 +34,12 @@ export function CountryCard() {
               <p>{countryData.capital}</p>
             </div>
             <div>
-              <p>Official Language</p>
-              <p>{countryData.officialLanguage}</p>
+              <p>Language(s)</p>
+              <div>
+                {Object.entries(countryData.languages).map((language, i) => {
+                  return <div key={i}>{language[1]}</div>;
+                })}
+              </div>
             </div>
             <div>
               <p>Area</p>
@@ -50,8 +54,16 @@ export function CountryCard() {
               </p>
             </div>
             <div>
-              <p>Currency</p>
-              <p className='countryData'>{countryData.currency}</p>
+              <p>Currency(ies)</p>
+              <div>
+                {Object.entries(countryData.currencies).map((currency, i) => {
+                  return (
+                    <div
+                      key={i}
+                    >{`(${currency[1].symbol})${currency[1].name}`}</div>
+                  );
+                })}
+              </div>
             </div>
             <Map latLng={countryData.latlng} />
           </main>
