@@ -32,8 +32,6 @@ export function CountryProvider({ children, data }: CountryProviderProps) {
   async function loadCountryData(countryName: string) {
     const [data] = (await api.get(`/name/${countryName}?fullText=true`)).data;
 
-    console.log(data);
-
     const {
       name,
       flags,

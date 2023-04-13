@@ -32,5 +32,7 @@ export default function Home(props: HomeProps) {
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await api.get('/all?fields=name');
 
+  response.data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+
   return { props: { data: response.data } };
 };
