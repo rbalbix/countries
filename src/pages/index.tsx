@@ -7,7 +7,7 @@ import api from '../services/api';
 import styles from '../styles/pages/Home.module.css';
 
 interface HomeProps {
-  data: Array<{ name: string }>;
+  data: Array<{ name: { common: string } }>;
 }
 
 export default function Home(props: HomeProps) {
